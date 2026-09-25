@@ -13,7 +13,10 @@ function typeText(element, startDelay) {
 
     setTimeout(typeLetter, startDelay || 0);
 }
-typeText(document.querySelector("#typewriter"));
+const mainHeading = document.querySelector("#typewriter");
+if (mainHeading) {
+    typeText(mainHeading);
+}
 const subHeading = document.querySelector("#typewriter-sub");
 if (subHeading) {
     typeText(subHeading, 2500);
@@ -28,10 +31,4 @@ const observer = new IntersectionObserver(function (entries) {
 });
 document.querySelectorAll(".type-heading").forEach(function (heading) {
     observer.observe(heading);
-});
-const hamburger = document.querySelector("#hamburger");
-const navLinks = document.querySelector(".nav-links");
-
-hamburger.addEventListener("click", function () {
-    navLinks.classList.toggle("nav-open");
 });
